@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+}
+
+.text-note {
+    padding: 15px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    border-radius: 5px;
+    background-color: dodgerblue;
+}
+
+#btn {
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: dodgerblue;
+}
