@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --animation-time: 0.9s;
+    --circle-color: hsl(120, 70%, 60%);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    overflow: hidden;
+    font-family: sans-serif;
+    background-color: hsl(220, 100%, 2%);
+}
+
+.container {
+    width: 700px;
+    min-height: 700px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    /* --animation-time: 0.9s; */
+    animation: rotate var(--animation-time) linear infinite;
+    /* animation-play-state:paused; */
+}
+
+
+.container:hover {
+    animation-play-state: paused;
+}
+
+.container:hover img {
+    animation-play-state: paused;
+}
+
+.container:hover .circle .inner-circle {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.circle {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    transition: 550ms ease;
+}
+
+
+.inner-circle {
+    position: absolute;
+    background-color: var(--circle-color);
+    width: 150px;
+    border-radius: 100%;
+    aspect-ratio: 1;
+    left: 0;
+    display: grid;
+    place-items: center;
+    pointer-events: auto;
+    transition: background 350ms ease, color 350ms ease-in-out;
+    animation: rotate-opposite var(--animation-time) linear infinite;
+}
+
+.inner-circle:hover {
+    background-color: coral;
+    color: white;
+}
+
+
+
+img {
+    width: 25%;
+    animation: rotate-opposite var(--animation-time) linear infinite;
+    border-radius: 100vw;
+    outline: 4px solid hsl(120, 70%, 60%);
+    outline-offset: 8px;
+    z-index: 1;
+    --start-angle-of-rotation: 0deg;
+    --end-angle-of-rotation: -360deg;
+}
+
+@keyframes rotate-opposite {
+    from {
+        transform: rotate(var(--start-angle-of-rotation));
+    }
+
+    to {
+        transform: rotate(var(--end-angle-of-rotation));
+    }
+}
